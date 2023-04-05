@@ -1,0 +1,37 @@
+# checkpoint-procedural-programming
+ALGORITHM problem2_solution1
+VAR
+  set1 : ARRAY_OF INTEGER[4]; // declaring the array and define its length.
+  set2 : ARRAY_OF INTEGER[5];
+  set3:  ARRAY_OF INTEGER[10];
+   // declaring the array and define its length.
+  i,j,k,max1,max2,s : INTEGER; // declaring the index for each element in the array.
+BEGIN
+  k:=0;
+  max1:=set1.length;
+  max2:=set2.length;
+  set3:=[];
+  FOR i FROM 0 TO max1-1 STEP step  DO
+     FOR j FROM 0 TO max2-1 STEP step  DO
+         IF (set1[i] = set2[j]) THEN
+             set3[k]:=set1[i];
+             k:=k+1;
+         END_IF
+     END_FOR
+  END_FOR
+
+    FOR i FROM 0 TO max2-1 STEP step  DO
+     FOR j FROM 0 TO max1-1 STEP step  DO
+         IF (set2[i] = set1[j]) THEN
+             set3[k]:=set2[i];
+             k:=k+1;
+         END_IF
+     END_FOR
+  END_FOR
+  s:=0;
+  FOR i FROM 0 TO set3.length STEP step  DO
+      s:=s+set3[i];
+  END_FOR
+
+   write(s);
+END
